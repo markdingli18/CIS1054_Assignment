@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block menu %}
+    {% include 'menu.html' %}
+{% endblock %}
+
+{% block content %}
+         
+<div class="data">
+    
+    <div class="right">
+      <div class="content">
+        <div class= "col-sm-4 col-md-3">
+            <form method= "post" action="favourites.php?action=add&id={{item.id}}">
+             
+                     <!-- <img src="{{item.image}}" class="img-responsive"/> -->
+                     <h1 class="text-info">{{item.name}}</h1>
+                     
+                     <p class="text-danger">Price: {{item.price}}</p>
+                     <p class="text-info">Ingredients: {{item.ingredients}}</p>
+                     <p class="text-info">Description: {{item.description}}</p>
+                     <input type="hidden" name="name" value="{{item.name}}"/>
+                     <input type="hidden" name="price" value="{{item.price}}" />
+                     <input type="hidden" name="ingredients" value="{{item.ingredients}}"/>
+                     <input type="hidden" name="description" value="{{item.description}}"/>
+
+                    <input type="submit" name="add_to_fav"  style= "margin-top:5px; width:342px;"class="button" value= "Add to Favourites"/>
+                    
+                    <a href="index2.php" class="button" style="border-radius:13px; padding: 10px 3px 6px 12px;  color:white; text-align: center;">Back</a>
+                    </form>
+                   
+                    
+                </div>
+            
+        </div>
+        </div>
+</div>
+                   
+{% endblock %}

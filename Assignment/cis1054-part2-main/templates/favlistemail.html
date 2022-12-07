@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+    <body>
+    <section class="sub-header4">
+        <nav>
+            <a href="index.php"> <img src="images/gambero_logo2.png" alt=""></a>
+            <div class="nav-links" id = "navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.php">HOME</a></li>
+                    <li><a href="index2.php">MENU</a></li>
+                    <li><a href="favourites.php">FAVOURITES</a></li>
+                    <li><a href="gallery.php">GALLERY</a></li>
+                    <li><a href="contact_us.php">CONTACT US</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>Favourites</h1>
+    </section>
+    
+
+    <!-------JavaScript for toggle menu -------->
+    <script>
+        var navLinks = document.getElementById("navLinks")
+
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+    </script>
+<!------- Contact Us Content -------->
+        
+<section class="contact_us">
+    <div class="footer_row">
+        <div class="contact_col">
+            
+            <div>
+                <i class="fa fa-home"></i>
+                <span>
+                    <h5>Il Gambero</h5>
+                    <p>Triq Marina, Marsalforn,<p>
+                    <p>Zebbug, Gozo, Malta<p>  
+                </span>
+            </div>
+        
+            <div>
+                <i class="fa fa-envelope"></i>
+                <span>
+                    <h5>ilgambero@gmail.com</h5>
+                    <p>Email us your query<p>
+                </span>
+            </div>
+            
+        </div>
+
+        <form id="contact-form" action="favlistemail.php" method="post" autocomplete="off">
+            <div class="contact_col">
+                <form action="" method="post" autocomplete="off">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fname" placeholder="Your name.." required>
+
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname" placeholder="Your last name.." required>
+
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" placeholder="client@localhost.com">
+
+                  </form>
+                <input type="submit" name="submit" value="Submit">
+                <!-- <p>{{success}}</p> -->
+            </div>
+        
+        </form>
+        {% endblock %}
+        

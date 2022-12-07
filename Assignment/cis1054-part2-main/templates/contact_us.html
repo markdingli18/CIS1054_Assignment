@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ristorante Il Gambero</title>
+    <link rel="stylesheet" href="assets/css/style.css?v=<?php echo time(); ?>">    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&family=Roboto:wght@100;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+</head>
+
+    <body>
+    <section class="sub-header4">
+        <nav>
+            <a href="index.php"> <img src="images/gambero_logo2.png" alt=""></a>
+            <div class="nav-links" id = "navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.php">HOME</a></li>
+                    <li><a href="index2.php">MENU</a></li>
+                    <li><a href="favourites.php">FAVOURITES</a></li>
+                    <li><a href="gallery.php">GALLERY</a></li>
+                    <li><a href="contact_us.php">CONTACT US</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>Contact Us</h1>
+    </section>
+    
+
+    <!-------JavaScript for toggle menu -------->
+    <script>
+        var navLinks = document.getElementById("navLinks")
+
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+    </script>
+
+<!------- Fav List Content -------->
+        
+<section class="contact_us">
+    <div class="footer_row">
+        <div class="contact_col">
+            
+            <div>
+                <i class="fa fa-home"></i>
+                <span>
+                    <h5>Il Gambero</h5>
+                    <p>Triq Marina, Marsalforn,<p>
+                    <p>Zebbug, Gozo, Malta<p>  
+                </span>
+            </div>
+            <div>
+                <i class="fa fa-clock"></i>
+                <span>
+                    <h5>Opening Hours</h5>
+                    <p>10:00 - 22:00<p>
+                    <p>Closed on Mondays<p>  
+                </span>
+            </div>
+            <div>
+                <i class="fa fa-phone"></i>
+                <span>
+                    <h5>+356 2156 0353</h5>
+                    <p>Call us for a booking<p>
+                </span>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <span>
+                    <h5>ilgambero@gmail.com</h5>
+                    <p>Email us your query<p>
+                </span>
+            </div>
+            <div>
+                <i class="fab fa-facebook"></i>
+                <span>
+                    <h5>Facebook</h5>
+                    <p>Find us on Facebook<p>
+                </span>
+            </div>
+            <div>
+                <i class="fab fa-tripadvisor"></i>
+                <span>
+                    <h5>Tripadvisor</h5>
+                    <p>Give us a Review<p>
+                </span>
+            </div>
+        </div>
+
+        <form id="contact-form" action="emailToRestaurant.php" method="post" autocomplete="off">
+            <div class="contact_col">
+                <form action="" method="post" autocomplete="off">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fname" placeholder="Your name.." required>
+
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname" placeholder="Your last name.." required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email Address.." required>
+
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone" minlength = "8" maxlength = "8" placeholder="Phone Number.." required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Write something.." style="height:200px" required></textarea>
+
+                    <input type="submit" name="submit" value="Submit">
+                </form>
+                <p>{{success}}</p>
+            </div>
+        </form>
+
+        {% endblock %}

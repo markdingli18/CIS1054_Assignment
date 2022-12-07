@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block menu %}
+    {% include 'menu.html' with {'itemCategories': itemCategories} %}
+{% endblock %}
+
+{% block content %}
+
+<div class="wrapper">
+    <div class='title' >
+       <h4>Our Menu</h4>
+       <hr style="height:4px;background-color:#DEB887;">
+       <div style="line-height:40%;">
+            </div>
+        </div>
+</div>
+    
+    {% for item in items %}
+    <div class = "menu">
+        <div class="single-menu">
+            
+             <div class="images" style="width:180px; margin-right: 10px;">
+            <img src="{{ item.image }}" alt="{{ item.name }}" style="width:100%">
+        </div>
+                <div class="menu-content">
+                <h4><b>{{ item.name }}</b> 
+                <span>{{item.price}}</span></h4>
+                <p>{{ item.ingredients}}</p>
+                <p><a href="detail.php?item={{ item.id }}" class="btn btn-info">Details about {{ item.name }}</a></p>
+            </div>
+            </div>
+        </div>
+        
+        <br/>
+    {% endfor %}
+{% endblock %}
